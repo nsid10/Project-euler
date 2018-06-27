@@ -5,12 +5,11 @@ def palindrome(n):
     return False
 
 
-dg = 3
 sign = False
-for i in range((10**dg - 1)**2, (10**(dg - 1))**2, -1):
+for i in range((10**3 - 1)**2, (10**2)**2, -1):
     if palindrome(i):
-        for k in range(10**dg - 1, 10**(dg - 1), -1):
-            if i % k == 0 and i / k >= 10**(dg - 1) and i / k < 10**dg:
+        for k in range(10**3 - 1, 10**2, -1):
+            if i % k == 0 and i / k >= 10**2 and i / k < 10**3:
                 sign = True
                 break
     if sign:
