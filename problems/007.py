@@ -1,22 +1,16 @@
-def primality(n):
-    if type(n) != int:
-        raise TypeError("argument must be of type 'int'")
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    for x in range(3, int(n**0.5 + 1), 2):
-        if n % x == 0:
-            return False
-    return True
+def prime_sieve(n):
+    if n < 3:
+        return []
+    numbers = [True] * (n // 2)
+    for i in range(3, int(n**0.5 + 1), 2):
+        if numbers[(i - 1) // 2]:
+            for j in range(i * i, n, 2 * i):
+                numbers[(j - 1) // 2] = False
+    sieve = [2]
+    for i in range(1, n // 2):
+        if numbers[i]:
+            sieve.append(2 * i + 1)
+    return sieve
 
 
-num = 1
-pos = 1
-while pos < 10001:
-    num += 2
-    if primality(num):
-        pos += 1
-print(num)
+print(prime_sieve(125000)[10001 - 1])
