@@ -1,21 +1,21 @@
-def primefactor(n):
+def prime_factors(n):
     if type(n) != int:
         raise TypeError("argument must be of type 'int'")
     if n < 2:
         return []
     factors = []
     while n % 2 == 0:
-        n /= 2
+        n //= 2
         factors.append(2)
-    x = 3
+    i = 3
     limit = int(n**0.5 + 1)
-    while x <= limit:
-        if n % x == 0:
-            n /= x
+    while i <= limit:
+        if n % i == 0:
+            n //= i
             limit = int(n**0.5 + 1)
-            factors.append(x)
+            factors.append(i)
             continue
-        x += 2
+        i += 2
     if n != 1:
         factors.append(int(n))
     return factors
