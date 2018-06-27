@@ -5,7 +5,7 @@ large = 0
 for i in range(0, len(box) + 1 - size):
     cache = 1
     for j in range(size):
-        cache = cache * int(box[i + j])
+        cache *= int(box[i + j])
     if cache > large:
         large = cache
 print(large)
