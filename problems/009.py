@@ -1,12 +1,15 @@
-flag = False
-for m in range(1000):
-    for n in range(m):
-        a = m**2 - n**2
-        b = 2 * m * n
-        c = m**2 + n**2
-        if (a + b + c) == 1000:
-            flag = True
-            break
-    if flag:
-        break
-print(a * b * c)
+def triple(A):
+    if A % 2 != 0:
+        return -1
+    m = int((A / 4)**0.5)
+    while True:
+        m += 1
+        if A % (2 * m) == 0:
+            n = A // (2 * m) - m
+            if n <= 0:
+                return -1
+            elif n < m:
+                return 2 * (n * m**5 - m * n**5)
+
+
+print(triple(1000))
