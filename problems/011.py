@@ -1,5 +1,5 @@
-box = open("D:\Documents\Programming\Python\project euler\p011_grid.txt", "r")
-gridlist = box.read().split()
+with open("/home/nahian/Documents/Python/p011_grid.txt", "r") as box:
+    gridlist = box.read().split()
 grid = []
 pos = 0
 for i in range(20):
