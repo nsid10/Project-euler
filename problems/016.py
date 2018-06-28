@@ -1,6 +1,5 @@
-n = 2**1000
-vi = str(n)
-sum = 0
-for i in vi:
-    sum += int(i)
-print(sum)
+num = str(2**1000)
+digits = 0
+for i in num:
+    digits += int(i)
+print(digits)
