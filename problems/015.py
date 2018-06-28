@@ -1,6 +1,4 @@
-from math import factorial
+from math import factorial as fact
 
-n = 20 + 20
-r = 20
-paths = int(factorial(n) / (factorial(r) * factorial(n - r)))
-print(paths)
+m, n = 20, 20
+print(fact(m + n) // (fact(m) * fact(n)))
