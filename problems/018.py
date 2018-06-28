@@ -10,7 +10,7 @@ def path(a, b):
     return c
 
 
-box = open("D:\Documents\Programming\Python\project euler\p018_triangle.txt", "r")
+box = open("/home/nahian/Documents/Python/p018_triangle.txt", "r")
 numlist = box.read().split('\n')
 numlist.pop(-1)
 triangle = []
