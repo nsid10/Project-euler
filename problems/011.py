@@ -9,7 +9,7 @@ for i in range(20):
         pos += 1
     grid.append(row)
 large = 0
-for y in range(20 - 3):
+for y in range(20):
     for x in range(20 - 3):
         product = 1
         for k in range(4):
@@ -18,12 +18,14 @@ for y in range(20 - 3):
             large = product
         product = 1
         for k in range(4):
-            product *= grid[y + k][x + k]
+            product *= grid[x + k][y]
         if product > large:
             large = product
+for y in range(20 - 3):
+    for x in range(20 - 3):
         product = 1
         for k in range(4):
-            product *= grid[y + k][x]
+            product *= grid[y + k][x + k]
         if product > large:
             large = product
         product = 1
