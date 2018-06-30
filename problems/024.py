@@ -1,26 +1,12 @@
-from numpy import arange
+from math import factorial as fact
 
-
-def permutation(box):
-    store = [[box[0]]]
-    for i in range(1, len(box)):
-        temp = []
-        for j in store:
-            temp += arrange(j, box[i])
-        store = list(temp)
-    store.sort()
-    return store
-
-
-def arrange(block, e):
-    orders = []
-    for i in range(len(block) + 1):
-        temp = list(block)
-        temp.insert(i, e)
-        orders.append(temp)
-    return orders
-
-
-pan = list(arange(9 + 1))
-print(pan)
-print(permutation(pan)[1000000 - 1])
+num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+box = ''
+pos = 10**6
+while len(num) > 0:
+    size = fact(len(num)) // len(num)
+    box += num[(pos - 1) // size]
+    num.pop((pos - 1) // size)
+    while pos >= size:
+        pos -= size
+print(box)
