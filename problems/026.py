@@ -1,7 +1,6 @@
 def div(n, d):
     box = set()
     rec = set()
-    flag = False
     while True:
         if n == 0:
             break
@@ -10,14 +9,11 @@ def div(n, d):
             if n not in box:
                 box.add(n)
             else:
-                flag = True
-            if flag:
                 if n not in rec:
                     rec.add(n)
                 else:
                     break
         else:
-            num = n // d
             n = n % d
     return len(rec)
 
