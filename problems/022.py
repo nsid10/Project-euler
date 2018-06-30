@@ -8,11 +8,8 @@ def namescore(arg):
     return score
 
 
-names = open(
-    "D:\Documents\Programming\Python\project euler\p022_names.txt", "r")
+names = open("/home/nahian/Documents/Python/p022_names.txt", "r")
 namelist = names.read().split(',')
 namelist.sort()
-points = 0
-for i in namelist:
-    points += namescore(i) * (namelist.index(i) + 1)
+points = namescore(i) * (namelist.index(i) + 1)
 print(points)
