@@ -1,9 +1,5 @@
 def pandigital(n):
-    n = str(n)
-    box = []
-    for i in n:
-        box.append(i)
-    box.sort()
+    box = sorted([i for i in str(n)])
     if box == ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
         return True
     return False
