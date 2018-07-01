@@ -1,38 +1,38 @@
 def primality(n):
-    if type(n) != int:
-        raise TypeError("argument must be of type 'int'")
-    if n < 2:
-        return False
     if n == 2:
         return True
-    if n % 2 == 0:
+    if n < 2 or n % 2 == 0:
         return False
-    for x in range(3, int(n**0.5 + 1), 2):
-        if n % x == 0:
+    for i in range(3, int(n**0.5 + 1), 2):
+        if n % i == 0:
             return False
     return True
 
 
-def quad(a, b):
-    n = 0
-    while True:
-        if not primality(n**2 + a * n + b):
-            break
-        n += 1
-    return n
+def prime_sieve(n):
+    if n < 3:
+        return []
+    numbers = [True] * (n // 2)
+    for i in range(3, int(n**0.5 + 1), 2):
+        if numbers[(i - 1) // 2]:
+            for j in range(i * i, n, 2 * i):
+                numbers[(j - 1) // 2] = False
+    sieve = [2]
+    for i in range(1, n // 2):
+        if numbers[i]:
+            sieve.append(2 * i + 1)
+    return sieve
 
 
+sieve = prime_sieve(1000)
 long = 0
-for a in range(-999, 1001, 2):
-    if not primality(abs(a)):
-        continue
-    for b in range(1001):
-        if a + b <= 0 or abs(a) > b:
-            continue
-        if primality(b):
-            if quad(a, b) > long:
-                long = quad(a, b)
-                long_a = a
-                long_b = b
-print(long)
+for b in sieve:
+    for a in range(-b, 0, 2):
+        n = 0
+        while primality(n**2 + a * n + b):
+            n += 1
+        if long < n:
+            long = n
+            long_a = a
+            long_b = b
 print(long_a * long_b)
