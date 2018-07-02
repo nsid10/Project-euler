@@ -36,9 +36,8 @@ def trunc(n):
     return True
 
 
-N = 1000000
 sum = 0
-for i in prime_sieve(N):
+for i in prime_sieve(1000000):
     if trunc(i):
         sum += i
 print(sum)
