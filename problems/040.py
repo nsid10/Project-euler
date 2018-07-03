@@ -1,14 +1,12 @@
-n = 0
-pos = 0
-product = 1
-exp = 0
-while True:
-    n += 1
-    if exp > 6:
-        break
-    for i in str(n):
-        pos += 1
-        if pos == 10**exp:
-            product *= int(i)
-            exp += 1
+block, exp, prev, product = 0, 0, 0, 1
+for pos in [10**i for i in range(7)]:
+    while True:
+        next = prev + 9 * 10**exp * (exp + 1)
+        if pos <= next:
+            check = (pos - prev + exp) // (exp + 1)
+            product *= int(str(check + block)[(pos - prev + exp) % (exp + 1)])
+            break
+        block += 9 * 10**exp
+        exp += 1
+        prev = next
 print(product)
