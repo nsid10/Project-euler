@@ -1,34 +1,35 @@
+def group(n):
+    return ''.join(sorted(str(n), reverse=True))
+
+
 def primality(n):
     if type(n) != int:
         raise TypeError("argument must be of type 'int'")
-    if n < 2:
-        return False
     if n == 2:
         return True
-    if n % 2 == 0:
+    if n < 2 or n % 2 == 0:
         return False
-    for x in range(3, int(n**0.5 + 1), 2):
-        if n % x == 0:
+    for i in range(3, int(n**0.5 + 1), 2):
+        if n % i == 0:
             return False
     return True
 
 
-def group(n):
-    n = str(n)
-    box = []
-    for x in n:
-        box.append(x)
-    box.sort()
-    return box
-
-
-flag = False
-for i in range(1000, 10000):
-    if primality(i):
-        for j in range(i + 1, (10000 // 2) + (i // 2)):
-            if primality(j):
-                if group(i) == group(j):
-                    k = 2 * j - i
-                    if primality(k):
-                        if group(i) == group(k):
-                            print(i, j, k)
+n, f = 1487, 1
+while n < 10000:
+    n += 3 - f
+    f = -f
+    b, c = n + 3330, n + 3330 * 2
+    box = [n, b, c]
+    for x in box:
+        if primality(x):
+            continue
+        break
+    else:
+        for x in range(1, len(box)):
+            if group(box[x - 1]) == group(box[x]):
+                continue
+            break
+        else:
+            print(''.join(str(e) for e in box))
+            break
