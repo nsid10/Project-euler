@@ -1,7 +1,4 @@
-ways = []
-for i in range(1001):
-    ways.append(0)
-ways[0] = 1
+ways = [1] + [0] * 1000
 for i in range(1, 1001):
     for j in range(i, 1001):
         ways[j] += ways[j - i]
