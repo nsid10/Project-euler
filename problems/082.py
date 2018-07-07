@@ -16,7 +16,7 @@ def path(box):
     return min(temp)
 
 
-box = open("D:\Documents\Programming\Python\project euler\p082_matrix.txt", "r")
+box = open("/home/nahian/Documents/Python/p082_matrix.txt", "r")
 table = box.read().split()
 mat = []
 for i in table:
