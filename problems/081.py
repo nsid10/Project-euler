@@ -12,7 +12,7 @@ def path(box):
     return box[-1][-1]
 
 
-box = open("D:\Documents\Programming\Python\project euler\p081_matrix.txt", "r")
+box = open("/home/nahian/Documents/Python/p081_matrix.txt", "r")
 table = box.read().split()
 mat = []
 for i in table:
