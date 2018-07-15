@@ -17,9 +17,11 @@ sieve_c = prime_sieve(round(pow(n, 1 / 4)) + 1)
 
 bag = set()
 for c in sieve_c:
+    pro_c = c * c * c * c
     for b in sieve_b:
+        pro_b = b * b * b
         for a in sieve_a:
-            triplet = a * a + b * b * b + c * c * c * c
+            triplet = a * a + pro_b + pro_c
             if triplet > n:
                 break
             bag.add(triplet)
