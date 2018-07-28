@@ -15,5 +15,5 @@ def div(d):
     return len(rec)
 
 
-box = [0] + [div(i) for i in range(1, 1000)]
-print(box.index(max(box)))
+box = [div(i) for i in range(3, 1000)]
+print(box.index(max(box)) + 3)
