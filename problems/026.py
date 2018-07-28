@@ -1,9 +1,6 @@
-def div(n, d):
-    box = set()
-    rec = set()
+def div(d):
+    n, box, rec = 1, set(), set()
     while True:
-        if n == 0:
-            break
         if n < d:
             n *= 10
             if n not in box:
@@ -14,13 +11,13 @@ def div(n, d):
                 else:
                     break
         else:
-            n = n % d
+            n %= d
     return len(rec)
 
 
 long = 0
 for i in range(2, 1000):
-    if div(1, i) > long:
-        long = div(1, i)
+    if div(i) > long:
+        long = div(i)
         d = i
 print(d)
