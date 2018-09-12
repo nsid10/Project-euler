@@ -9,4 +9,4 @@ def lcm(box):
     return h
 
 
-lcm(list(range(1, 20 + 1)))
+print(lcm(list(range(1, 20 + 1))))
